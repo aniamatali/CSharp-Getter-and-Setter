@@ -6,6 +6,7 @@ class Car
   public string MakeModel;
   public int Price;
   public int Miles;
+  public string Speed;
   public bool Availability;
   private int _year;
 
@@ -18,11 +19,12 @@ class Car
     return _year;
   }
 
-  public Car(string CarModel, int CarPrice, int CarMiles = 0)
+  public Car(string CarModel, int CarPrice, string CarInfo, int CarMiles)
   {
     MakeModel = CarModel;
     Price = CarPrice;
     Miles = CarMiles;
+    Speed = CarInfo;
     Availability = true;
   }
 }
@@ -31,11 +33,11 @@ public class Program
 {
   public static void Main()
   {
-    Car porsche = new Car("Porsche911", 100000, 12000);
-    Car ford = new Car("Ford F150", 30000, 14000);
-    Car lexus = new Car("Lexus GS350", 45000, 18300);
-    Car bmw = new Car("BMW M4", 72000, 3400);
-    Car nissan = new Car("Nissan Maxima", 20000, 32000);
+    Car porsche = new Car("Porsche911", 100000,"Very Fast Car" ,12000);
+    Car ford = new Car("Ford F150", 30000,"Big Car" ,14000);
+    Car lexus = new Car("Lexus GS350", 45000, "Semi Fast Car", 18300);
+    Car bmw = new Car("BMW M4", 72000,"Fast Car" ,3400);
+    Car nissan = new Car("Nissan Maxima", 20000,"Normal Car", 32000);
 
     porsche.SetYear(16);
     ford.SetYear(13);
@@ -50,6 +52,7 @@ public class Program
       Console.WriteLine("Price: " + automobile.Price);
       Console.WriteLine("Miles: " + automobile.Miles);
       Console.WriteLine("Year: " + automobile.GetYear());
+      Console.WriteLine("Additional Info: " + automobile.Speed);
     }
 
     Console.WriteLine("Enter maximum price: ");
@@ -72,6 +75,7 @@ public class Program
       Console.WriteLine("Price: " + automobile.Price);
       Console.WriteLine("Miles: " + automobile.Miles);
       Console.WriteLine("Year: " + automobile.GetYear());
+      Console.WriteLine("Additional Info: " + automobile.Speed);
     }
   }
 }
